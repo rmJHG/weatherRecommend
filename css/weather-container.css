@@ -1,0 +1,66 @@
+.weather-container {
+  position: relative;
+  height: 950px;
+  width: 500px;
+  margin: 10px;
+}
+.weather-container i {
+  margin-top: 66.5px;
+  margin-left: 19.6px;
+  font-size: 170px;
+  color: #c7cbcf;
+}
+
+.weather-container_innerBox {
+  position: relative;
+  display: flex;
+  width: 500px;
+  height: 280px;
+  border: var(--main-border);
+  background-color: var(--main-color);
+}
+
+.weather-container_innerBox_update {
+  position: absolute;
+  margin: 5px;
+  left: 0px;
+  top: 0;
+}
+.weather-container_innerBox_update > span {
+  display: flex;
+}
+.weather-container_innerBox_info {
+  display: grid;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 25px;
+  text-align: center;
+}
+.weather-container_innerBox_info_sido {
+  position: relative;
+  justify-content: center;
+  height: 90px;
+  width: 200px;
+  border-radius: 30px;
+  border: var(--main-border);
+}
+.weather-container_innerBox_info > span {
+  padding-top: 25px;
+  font-size: 17px;
+}
+
+.weather-container_innerBox_info_nh,
+.weather-container_innerBox_info_mm {
+  display: flex;
+}
+.weather-container_innerBox_info_nh div,
+.weather-container_innerBox_info_mm div {
+  height: 70px;
+  width: 90px;
+  border-radius: 15px;
+  border: var(--main-border);
+  margin: 5px;
+}
+.weather-container_innerBox_info_nh div span:first-child {
+  bottom: 20px;
+}

@@ -1,0 +1,24 @@
+.todo {
+  position: absolute;
+  bottom: 0;
+  width: 500px;
+  height: 640px;
+  border: var(--main-border);
+  background-color: var(--main-color);
+}
+
+.todo-form {
+  text-align: center;
+  margin-top: 20px;
+}
+.todo-form input {
+  width: 250px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+.todo-form input:focus {
+  outline: 1px solid green;
+  border-bottom: 1px solid green;
+}
