@@ -1,13 +1,19 @@
 const todoInput = document.querySelector(".todoInput");
 const todoForm = document.querySelector(".todo-form");
 const toDoListUl = document.querySelector(".todo-list");
+const todoCount = document.querySelector(".todoCount");
 let saveToDo = [];
+
+function cheackTodoLen() {
+  todoCount.innerText = saveToDo.length;
+}
+
 function delBtnClick(event) {
   const list = event.target.parentElement;
   list.remove();
   saveToDo = saveToDo.filter((aa) => aa.id !== parseInt(list.id));
-  console.log(saveToDo);
   localStorage.setItem("data", JSON.stringify(saveToDo));
+  cheackTodoLen();
 }
 
 function addToDo(inputdata) {
@@ -24,14 +30,19 @@ function addToDo(inputdata) {
 }
 function toDoSubmit(event) {
   event.preventDefault();
-  const saveToDoObject = {
-    text: todoInput.value,
-    id: Date.now(),
-  };
-  addToDo(saveToDoObject);
-  saveToDo.push(saveToDoObject);
-  localStorage.setItem("data", JSON.stringify(saveToDo));
-  todoInput.value = "";
+  if (saveToDo.length <= 19) {
+    const saveToDoObject = {
+      text: todoInput.value,
+      id: Date.now(),
+    };
+    addToDo(saveToDoObject);
+    saveToDo.push(saveToDoObject);
+    localStorage.setItem("data", JSON.stringify(saveToDo));
+    todoInput.value = "";
+    cheackTodoLen();
+  } else {
+    todoInput.value = "";
+  }
 }
 const savedToDo = localStorage.getItem("data");
 if (savedToDo !== null) {
@@ -39,8 +50,8 @@ if (savedToDo !== null) {
   saveToDo = reloadToDos;
   reloadToDos.forEach(addToDo);
 }
+cheackTodoLen();
 todoForm.addEventListener("submit", toDoSubmit);
-
 todoInput.addEventListener("focus", () => {
   todoInput.placeholder = "";
 });

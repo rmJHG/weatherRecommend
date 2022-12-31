@@ -1,6 +1,8 @@
 @import "variable.css";
 @import "weather-container.css";
 @import "todo-list.css";
+@import "map.css";
+
 body {
   display: flex;
   margin: 0;
