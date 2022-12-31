@@ -1,4 +1,4 @@
-.todo {
+.todo-container {
   position: absolute;
   bottom: 0;
   width: 500px;
@@ -19,6 +19,6 @@
   text-align: center;
 }
 .todo-form input:focus {
-  outline: 1px solid green;
-  border-bottom: 1px solid green;
+  outline: 1px solid black;
+  border: none;
 }

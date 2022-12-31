@@ -2,9 +2,10 @@ const weatherInfo = document.querySelector(".weather");
 const coord = document.querySelector(".coord");
 const weatherIconForYou = document.querySelector(".weather-container_innerBox_icon");
 const nowTemp = document.querySelector(".nowTemp");
+const ftTemp = document.querySelector(".ftTemp");
 const huTemp = document.querySelector(".huTemp");
-const lowTemp = document.querySelector(".lowTemp");
-const hgTemp = document.querySelector(".hgTemp");
+const loc = document.querySelector(".loc");
+const updateTime = document.querySelector(".updateTime");
 
 const API_KEY = "b0cb44432057bee080d3e3db2ed3a68d";
 const MAPAPI_KEY = "c19a0181393183574e358c5095a76439";
@@ -25,8 +26,6 @@ function weatherIcon(weather_data) {
   }
 }
 
-function addressInfo() {}
-
 function onGeoOk(position) {
   lat = position.coords.latitude;
   lon = position.coords.longitude;
@@ -35,16 +34,26 @@ function onGeoOk(position) {
     .then((response) => response.json())
     .then((data) => {
       // console.log(data);
-      const weather_data = data.weather[0].main;
       nowTemp.innerText = data.main.temp + "℃";
-      huTemp.innerText = data.main.feels_like + "℃";
-      lowTemp.innerText = data.main.temp_min + "℃";
-      hgTemp.innerText = data.main.temp_max + "℃";
-      weatherIcon(weather_data);
+      ftTemp.innerText = data.main.feels_like + "℃";
+      huTemp.innerText = data.main.humidity + "%";
+      loc.innerText = `${data.sys.country}  ${data.name}`;
+      weatherIcon(data.weather[0].main);
     });
 }
 
 function onGeoError() {
   alert("Weather error");
 }
-navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+
+function updateGeoInfo() {
+  const today = new Date();
+  const updatehours = today.getHours();
+  const updateMins = String(today.getMinutes()).padStart(2, "0");
+  const updateSecs = String(today.getSeconds()).padStart(2, "0");
+
+  updateTime.innerText = `${updatehours}:${updateMins}:${updateSecs}`;
+  navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+}
+updateGeoInfo();
+setInterval(updateGeoInfo, 60000);
