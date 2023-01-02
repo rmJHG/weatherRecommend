@@ -1,4 +1,51 @@
+.right-container {
+  position: relative;
+  display: grid;
+  height: 950px;
+  width: 1000px;
+  border: var(--main-border);
+  background-color: var(--main-color);
+}
+
+.btn-container {
+  display: flex;
+  margin: 10px;
+  justify-content: space-evenly;
+  height: 130px;
+}
+.mapBtn-container,
+.mapSettingBtn-container,
+.designBtn-container {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 10px;
+  height: 90px;
+  text-align: center;
+}
+.mapBtn-container {
+  width: 500px;
+}
+.mapSettingBtn-container {
+  width: 130px;
+}
+
+.designBtn-container {
+  width: 130px;
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+}
+.maplist-container {
+  display: flex;
+  margin: 10px;
+  height: 750px;
+}
 #map {
-  height: 80%;
-  width: 80%;
+  height: 767px;
+  width: 500px;
+  margin-right: 20px;
+}
+.mapList {
+  overflow-y: scroll;
+  width: 350px;
 }

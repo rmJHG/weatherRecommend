@@ -13,6 +13,17 @@ let lat;
 let lon;
 
 function weatherIcon(weather_data) {
+  if (weather_data !== "Clear") {
+    weatherIconForYou.classList.remove("fa-sun");
+  } else if (weather_data !== "Clouds") {
+    weatherIconForYou.classList.remove("fa-cloud");
+  } else if (weather_data !== "Wind") {
+    weatherIconForYou.classList.remove("fa-wind");
+  } else if (weather_data !== "Cloudrain") {
+    weatherIconForYou.classList.remove("fa-cloud-rain");
+  } else if (weather_data !== "Snowflake") {
+    weatherIconForYou.classList.remove("fa-snowflake");
+  }
   if (weather_data === "Clear") {
     weatherIconForYou.classList.add("fa-sun");
   } else if (weather_data === "Clouds") {
@@ -22,7 +33,7 @@ function weatherIcon(weather_data) {
   } else if (weather_data === "Cloudrain") {
     weatherIconForYou.classList.add("fa-cloud-rain");
   } else if (weather_data === "Snowflake") {
-    weatherIconForYou.classList.add("fa-cloud-rain");
+    weatherIconForYou.classList.add("fa-snowflake");
   }
 }
 

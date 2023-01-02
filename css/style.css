@@ -4,19 +4,17 @@
 @import "map.css";
 
 body {
+  margin: 0 auto;
+  padding: 0;
   display: flex;
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
+  justify-content: center;
+  width: 1466px;
+  height: 90%;
   font-family: "roboto", sans-serif;
   font-weight: 300;
-  background-color: gray;
+  /* background-color: gray; */
 }
-.right {
-  margin: 10px;
-  display: flex;
-  height: 948px;
-  width: 1700px;
-  border: var(--main-border);
-  background-color: var(--main-color);
+.left-container,
+.right-container {
+  margin: 8px;
 }

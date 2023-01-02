@@ -1,11 +1,10 @@
 .left-container {
   position: relative;
-  height: 950px;
   width: 500px;
-  margin: 10px;
+  height: 952px;
 }
 .left-container i {
-  margin: 55px 20px 20px 20px;
+  margin: 70px 20px 20px 60px;
   font-size: 170px;
   color: #c7cbcf;
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>weather</title>
+    <title>날씨별 활동 추천하기</title>
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -56,11 +56,29 @@
         <ul class="todo-list"></ul>
       </div>
     </div>
-    <div class="right">
-      <input type="button" class="mapBtn" value="원위치" />
+    <div class="right-container">
+      <div class="btn-container">
+        <div class="mapSettingBtn-container">
+          <input type="button" class="mapBtn" value="원위치" />
+        </div>
 
-      <div class="recommend"></div>
-      <div id="map"></div>
+        <div class="mapBtn-container">
+          <span>현재 온도가 매우 낮으니 실내활동을 추천해요.</span>
+          <!-- ajax 조건별 추천버튼 추가 -->
+        </div>
+        <div class="designBtn-container">
+          <!-- 다크모드구현 -->
+          <input type="button" value="Light" />
+          <input type="button" value="Dark" />
+        </div>
+      </div>
+      <div class="maplist-container">
+        <div id="map"></div>
+        <ul class="mapList">
+          <!-- api에서 리스트받아오기 -->
+          <li>hello</li>
+        </ul>
+      </div>
     </div>
     <script src="/js/app.js"></script>
     <script src="/js/clock.js"></script>
