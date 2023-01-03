@@ -47,5 +47,16 @@
 }
 .mapList {
   overflow-y: scroll;
-  width: 350px;
+  width: 400px;
+  height: 750px;
+  list-style: none;
+  padding: 0;
+}
+.mapList li {
+  border-bottom: var(--main-border);
+  margin-bottom: 10px;
+}
+.mapList li span {
+  display: block;
+  padding: 4px 0px;
 }

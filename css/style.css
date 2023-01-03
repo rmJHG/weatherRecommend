@@ -14,6 +14,11 @@ body {
   font-weight: 300;
   /* background-color: gray; */
 }
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+}
 .left-container,
 .right-container {
   margin: 8px;
