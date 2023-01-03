@@ -58,13 +58,17 @@
     </div>
     <div class="right-container">
       <div class="btn-container">
-        <div class="mapSettingBtn-container">
-          <input type="button" class="mapBtn" value="원위치" />
-        </div>
+        <!-- <div class="mapSettingBtn-container"></div> -->
 
         <div class="mapBtn-container">
           <span>현재 온도가 매우 낮으니 실내활동을 추천해요.</span>
-          <!-- ajax 조건별 추천버튼 추가 -->
+          <div>
+            <input type="button" value="피시방" class="recommendBtnClick" />
+            <input type="button" value="카페" class="recommendBtnClick" />
+            <input type="button" value="만화카페" class="recommendBtnClick" />
+            <input type="button" value="방탈출" class="recommendBtnClick" />
+            <!-- <input type="button" value="놀이공원" class="addressClicks" /> -->
+          </div>
         </div>
         <div class="designBtn-container">
           <!-- 다크모드구현 -->
@@ -74,6 +78,7 @@
       </div>
       <div class="maplist-container">
         <div id="map"></div>
+        <button class="mapBtn"><i class="fa-solid fa-location-dot"></i></button>
         <ul class="mapList"></ul>
       </div>
     </div>

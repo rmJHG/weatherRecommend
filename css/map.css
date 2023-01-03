@@ -6,7 +6,16 @@
   border: var(--main-border);
   background-color: var(--main-color);
 }
-
+.mapBtn {
+  margin: 5px;
+  position: absolute;
+  font-size: 25px;
+  z-index: 99;
+  color: black;
+  background-color: white;
+  border-radius: 9px;
+  border: 1px solid black;
+}
 .btn-container {
   display: flex;
   margin: 10px;
@@ -23,7 +32,8 @@
   text-align: center;
 }
 .mapBtn-container {
-  width: 500px;
+  width: 700px;
+  display: block;
 }
 .mapSettingBtn-container {
   width: 130px;

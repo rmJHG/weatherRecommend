@@ -1,26 +1,30 @@
 const container = document.querySelector("#map");
 const btn = document.querySelector(".mapBtn");
 const mapListUl = document.querySelector(".mapList");
-let places = new kakao.maps.services.Places();
-
+const recommendBtnClick = document.querySelectorAll(".recommendBtnClick");
+const moveAddress = document.querySelectorAll(".address");
 const options = {
   center: new kakao.maps.LatLng(lat, lon),
   level: 3,
 };
+let places = new kakao.maps.services.Places();
+let map = new kakao.maps.Map(container, options);
+// let geocoder = new kakao.maps.services.Geocoder();
+
 function panTo() {
-  var moveLatLon = new kakao.maps.LatLng(lat, lon);
+  const moveLatLon = new kakao.maps.LatLng(lat, lon);
   map.panTo(moveLatLon);
 }
-const callback = function (result, status) {
-  if (status === kakao.maps.services.Status.OK) {
-    console.log(result);
-    recommendList(result);
+function delRecommendList() {
+  while (mapListUl.hasChildNodes()) {
+    mapListUl.removeChild(mapListUl.firstChild);
   }
-};
-
+}
 function recommendList(result) {
   for (i = 0; i < result.length; i++) {
     const resultList = result[i];
+    const x = resultList.x;
+    const y = resultList.y;
     const resultPlaceName = JSON.stringify(resultList.place_name);
     const resultAddress = JSON.stringify(resultList.address_name);
     const resultCategory = JSON.stringify(resultList.category_name);
@@ -28,12 +32,17 @@ function recommendList(result) {
     const resultUrl = JSON.stringify(resultList.place_url);
 
     const placeList = document.createElement("li");
+    placeList.classList.add("LL");
     const placeUrl = document.createElement("a");
     placeUrl.href = resultUrl.substring(1, resultUrl.length - 1);
+    placeUrl.target = "blink";
     const placeName = document.createElement("span");
     placeName.innerText = resultPlaceName.substring(1, resultPlaceName.length - 1);
-    const placeAddress = document.createElement("span");
-    placeAddress.innerText = resultAddress.substring(1, resultAddress.length - 1);
+    const placeAddress = document.createElement("input");
+    placeAddress.type = "button";
+    placeAddress.value = resultAddress.substring(1, resultAddress.length - 1);
+    placeAddress.classList.add("address");
+    placeAddress.name = "hi";
     const categoryName = document.createElement("span");
     categoryName.innerText = resultCategory.substring(1, resultCategory.length - 1);
     const phoneNum = document.createElement("span");
@@ -45,11 +54,26 @@ function recommendList(result) {
     placeList.appendChild(placeAddress);
     placeList.appendChild(phoneNum);
     mapListUl.appendChild(placeList);
+
+    //test
   }
 }
+function recommendSearch(value) {
+  const callback = function (result, status) {
+    if (status === kakao.maps.services.Status.OK) {
+      // console.log(result);
+      recommendList(result);
+    }
+  };
+  places.keywordSearch(value, callback, {
+    location: new kakao.maps.LatLng(lat, lon),
+  });
+}
 
-places.keywordSearch("놀이공원", callback, {
-  location: new kakao.maps.LatLng(lat, lon),
-});
-const map = new kakao.maps.Map(container, options);
 btn.addEventListener("click", panTo);
+recommendBtnClick.forEach((target) =>
+  target.addEventListener("click", () => {
+    delRecommendList();
+    recommendSearch(target.value);
+  })
+);
