@@ -10,7 +10,7 @@ const options = {
 let places = new kakao.maps.services.Places();
 let map = new kakao.maps.Map(container, options);
 // let geocoder = new kakao.maps.services.Geocoder();
-
+let markers = [];
 function panTo() {
   const moveLatLon = new kakao.maps.LatLng(lat, lon);
   map.panTo(moveLatLon);
@@ -47,14 +47,14 @@ function recommendList(result) {
     categoryName.innerText = resultCategory.substring(1, resultCategory.length - 1);
     const phoneNum = document.createElement("span");
     phoneNum.innerText = resultPhoneNum.substring(1, resultPhoneNum.length - 1);
-
+    addMarker(y, x);
     placeUrl.appendChild(placeName);
     placeList.appendChild(placeUrl);
     placeList.appendChild(categoryName);
     placeList.appendChild(placeAddress);
     placeList.appendChild(phoneNum);
     mapListUl.appendChild(placeList);
-
+    
     //test
   }
 }
@@ -69,11 +69,31 @@ function recommendSearch(value) {
     location: new kakao.maps.LatLng(lat, lon),
   });
 }
+function addMarker (xInfo, yInfo) {
+  let markerPosition  = new kakao.maps.LatLng(xInfo, yInfo); 
+   marker = new kakao.maps.Marker({
+    position: markerPosition
+  });
+
+  marker.setMap(map);
+  markers.push(marker)
+  console.log(marker)
+}
+function removeMarker() {
+  for ( var i = 0; i < markers.length; i++ ) {
+    markers[i].setMap(null);
+}   
+markers = [];
+}
+
+
 
 btn.addEventListener("click", panTo);
 recommendBtnClick.forEach((target) =>
-  target.addEventListener("click", () => {
-    delRecommendList();
+target.addEventListener("click", () => {
+  delRecommendList();
+  removeMarker()
     recommendSearch(target.value);
   })
-);
+  );
+  
