@@ -6,12 +6,13 @@ const ftTemp = document.querySelector(".ftTemp");
 const huTemp = document.querySelector(".huTemp");
 const loc = document.querySelector(".loc");
 const updateTime = document.querySelector(".updateTime");
+const announcement = document.querySelector(".announcement");
 
 const API_KEY = "b0cb44432057bee080d3e3db2ed3a68d";
 const MAPAPI_KEY = "c19a0181393183574e358c5095a76439";
 let lat;
 let lon;
-
+let recommendNowTemp;
 function weatherIcon(weather_data) {
   if (weather_data !== "Clear") {
     weatherIconForYou.classList.remove("fa-sun");
@@ -35,6 +36,43 @@ function weatherIcon(weather_data) {
   } else if (weather_data === "Snowflake") {
     weatherIconForYou.classList.add("fa-snowflake");
   }
+  if (recommendNowTemp < 4) {
+    fetch("season/winter").then(function (response) {
+      response.text().then((text) => {
+        announcement.innerText = text;
+      });
+    });
+  } else if (4 <= recommendNowTemp < 8) {
+    fetch("season/48").then(function (response) {
+      response.text().then((text) => {
+        announcement.innerText = text;
+      });
+    });
+  } else if (8 <= recommendNowTemp < 15 && weather_data === "Clouds") {
+    fetch("season/815Clouds").then(function (response) {
+      response.text().then((text) => {
+        announcement.innerText = text;
+      });
+    });
+  } else if (8 <= recommendNowTemp < 15 && weather_data === "Wind") {
+    fetch("season/815Wind").then(function (response) {
+      response.text().then((text) => {
+        announcement.innerText = text;
+      });
+    });
+  } else if (8 <= recommendNowTemp < 15 && weather_data === "Clear") {
+    fetch("season/815Clear").then(function (response) {
+      response.text().then((text) => {
+        announcement.innerText = text;
+      });
+    });
+  } else if (16 <= recommendNowTemp < 23) {
+    fetch("season/1623").then(function (response) {
+      response.text().then((text) => {
+        announcement.innerText = text;
+      });
+    });
+  }
 }
 
 function onGeoOk(position) {
@@ -46,6 +84,8 @@ function onGeoOk(position) {
     .then((data) => {
       // console.log(data);
       nowTemp.innerText = data.main.temp + "℃";
+
+      recommendNowTemp = data.main.temp;
       ftTemp.innerText = data.main.feels_like + "℃";
       huTemp.innerText = data.main.humidity + "%";
       loc.innerText = `${data.sys.country}  ${data.name}`;

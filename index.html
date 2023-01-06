@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
   </head>
-  <body>
+  <body class="">
     <div class="left-container">
       <div class="weather-container">
         <i class="weather-container_innerBox_icon fa-solid fa-3x"></i>
@@ -25,7 +25,7 @@
           <div class="weather-container_innerBox_info_nh">
             <div>
               <span>현재 온도</span>
-              <span class="nowTemp">26e</span>
+              <span class="nowTemp">26e </span>
             </div>
             <div>
               <span>체감 온도</span>
@@ -58,22 +58,14 @@
     </div>
     <div class="right-container">
       <div class="btn-container">
-        <!-- <div class="mapSettingBtn-container"></div> -->
-
         <div class="mapBtn-container">
-          <span>현재 온도가 매우 낮으니 실내활동을 추천해요.</span>
-          <div>
+          <span class="announcement"></span>
+          <div class="seasonRecommend">
             <input type="button" value="피시방" class="recommendBtnClick" />
             <input type="button" value="카페" class="recommendBtnClick" />
             <input type="button" value="만화카페" class="recommendBtnClick" />
             <input type="button" value="방탈출" class="recommendBtnClick" />
-            <!-- <input type="button" value="놀이공원" class="addressClicks" /> -->
           </div>
-        </div>
-        <div class="designBtn-container">
-          <!-- 다크모드구현 -->
-          <input type="button" value="Light" />
-          <input type="button" value="Dark" />
         </div>
       </div>
       <div class="maplist-container">
@@ -85,6 +77,7 @@
     <script src="/js/app.js"></script>
     <script src="/js/clock.js"></script>
     <script src="/js/todo.js"></script>
+
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c19a0181393183574e358c5095a76439&libraries=services"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c19a0181393183574e358c5095a76439"></script>
     <script src="js/map.js"></script>

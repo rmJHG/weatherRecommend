@@ -3,8 +3,6 @@
   bottom: 0;
   width: 500px;
   height: 650px;
-  border: var(--main-border);
-  background-color: var(--main-color);
 }
 .todo-container div:first-child {
   position: relative;

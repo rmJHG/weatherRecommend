@@ -3,8 +3,6 @@
   display: grid;
   height: 950px;
   width: 1000px;
-  border: var(--main-border);
-  background-color: var(--main-color);
 }
 .mapBtn {
   margin: 5px;
@@ -63,7 +61,6 @@
   padding: 0;
 }
 .mapList li {
-  border-bottom: var(--main-border);
   margin-bottom: 10px;
 }
 .mapList li span {

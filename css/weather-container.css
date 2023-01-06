@@ -14,8 +14,6 @@
   display: flex;
   width: 500px;
   height: 280px;
-  border: var(--main-border);
-  background-color: var(--main-color);
 }
 .weather-container_innerBox_info {
   display: grid;
@@ -38,7 +36,6 @@
   height: 80px;
   width: 90px;
   border-radius: 15px;
-  border: var(--main-border);
   margin: 5px;
 }
 .weather-container_innerBox_info_nh div span:first-child {
