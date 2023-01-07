@@ -13,11 +13,26 @@ body {
   font-family: "roboto", sans-serif;
   font-weight: 300;
 }
+/* 맵리스트 스크롤 */
+.mapList::-webkit-scrollbar {
+  width: 10px;
+}
+.mapList::-webkit-scrollbar-thumb {
+  height: 30%;
+  background: #217af4;
+  border-radius: 10px;
+}
+.mapList::-webkit-scrollbar-track {
+  background: rgba(33, 122, 244, 0.1);
+}
+
+/* 앵커 기본설정 */
 a {
   color: inherit;
   text-decoration: none;
   font-weight: 700;
 }
+
 .left-container,
 .right-container {
   margin: 8px;
@@ -35,7 +50,7 @@ a {
 .weather-container_innerBox_info_mm div {
   border: var(--main-border);
 }
-
+/* 라이트모드 */
 @media (prefers-color-scheme: light) {
   .todo-container,
   .weather-container,
@@ -50,24 +65,29 @@ a {
   .weather-container_innerBox_info_mm div {
     border: var(--main-border);
   }
+  .seasonRecommend input {
+    border: 1px solid #3b3f4a;
+    border-radius: 3px;
+  }
 }
-
+/* 다크모드 */
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: black;
     color: white;
-  }
-  input {
     background-color: black;
-    border: 1px solid #3b3f4a;
-    color: white;
   }
-  .todo-form input {
+  .seasonRecommend input {
+    border: 1px solid var(--main-dark-color);
+    border-radius: 3px;
+    color: white;
+    background-color: #3b3f4a;
+  }
+  .todo-form > input {
     border-bottom: 1px solid var(--main-dark-color);
   }
-  .todo-form input:focus {
-    outline: 1px solid var(--main-dark-color);
+  .todo-form > input:focus {
     border: none;
+    outline: 1px solid var(--main-dark-color);
   }
 
   .todo-container,
@@ -84,18 +104,3 @@ a {
     border: 1px solid var(--main-dark-color);
   }
 }
-
-/* .dark {
-  background-color: black;
-  color: white;
-  border: 1px solid #3b3f4a;
-}
-.darkContainer {
-  border: 1px solid var(--main-dark-color);
-  background-color: #1b1c24;
-}
-.darkList {
-  border-bottom: 1px solid var(--main-dark-color);
-}
-.darkWeatherContainer {
-} */

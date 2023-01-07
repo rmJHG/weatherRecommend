@@ -16,14 +16,14 @@
   text-align: center;
   margin-top: 20px;
 }
-.todo-form input {
+.todo-form > input {
   width: 250px;
   background: none;
   border: none;
   border-bottom: 1px solid black;
   text-align: center;
 }
-.todo-form input:focus {
+.todo-form > input:focus {
   outline: 1px solid black;
   border: none;
 }

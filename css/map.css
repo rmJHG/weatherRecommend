@@ -3,45 +3,34 @@
   display: grid;
   height: 950px;
   width: 1000px;
+  justify-items: center;
 }
 .mapBtn {
-  margin: 5px;
-  position: absolute;
-  font-size: 25px;
   z-index: 99;
+  position: absolute;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 9px;
+  font-size: 25px;
   color: black;
   background-color: white;
-  border-radius: 9px;
-  border: 1px solid black;
 }
-.btn-container {
-  display: flex;
+
+.mapBtn-container {
   margin: 10px;
-  justify-content: space-evenly;
-  height: 130px;
-}
-.mapBtn-container,
-.mapSettingBtn-container,
-.designBtn-container {
   border: 1px solid gray;
   border-radius: 10px;
   padding: 10px;
   height: 90px;
+  width: 700px;
   text-align: center;
 }
-.mapBtn-container {
-  width: 700px;
-  display: block;
+.seasonRecommend {
+  margin: 20px;
 }
-.mapSettingBtn-container {
-  width: 130px;
-}
-
-.designBtn-container {
-  width: 130px;
-  display: flex;
-  align-content: center;
-  justify-content: space-evenly;
+.seasonRecommend input {
+  margin: 0px 5px;
+  padding: 10px;
 }
 .maplist-container {
   display: flex;
@@ -49,16 +38,16 @@
   height: 750px;
 }
 #map {
+  margin-right: 20px;
   height: 767px;
   width: 500px;
-  margin-right: 20px;
 }
 .mapList {
-  overflow-y: scroll;
+  padding: 0;
   width: 400px;
   height: 750px;
   list-style: none;
-  padding: 0;
+  overflow-y: scroll;
 }
 .mapList li {
   margin-bottom: 10px;

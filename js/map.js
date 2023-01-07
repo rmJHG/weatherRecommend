@@ -1,12 +1,10 @@
 const container = document.querySelector("#map");
 const btn = document.querySelector(".mapBtn");
 const mapListUl = document.querySelector(".mapList");
-const recommendBtnClick = document.querySelectorAll(".recommendBtnClick");
 const moveAddress = document.querySelectorAll(".address");
-
 const options = {
   center: new kakao.maps.LatLng(lat, lon),
-  level: 3,
+  level: 5,
 };
 let places = new kakao.maps.services.Places();
 let map = new kakao.maps.Map(container, options);
@@ -39,9 +37,8 @@ function recommendList(result) {
     const placeName = document.createElement("span");
     placeName.innerText = resultPlaceName.substring(1, resultPlaceName.length - 1);
     const placeAddress = document.createElement("span");
-    // placeAddress.type = "button";
     placeAddress.innerText = resultAddress.substring(1, resultAddress.length - 1);
-    // placeAddress.classList.add("address");
+
     placeAddress.name = "hi";
     const categoryName = document.createElement("span");
     categoryName.innerText = resultCategory.substring(1, resultCategory.length - 1);
@@ -75,7 +72,6 @@ function addMarker(yInfo, xInfo) {
 
   marker.setMap(map);
   markers.push(marker);
-  console.log(marker);
 }
 function removeMarker() {
   for (var i = 0; i < markers.length; i++) {
@@ -85,10 +81,3 @@ function removeMarker() {
 }
 
 btn.addEventListener("click", panTo);
-recommendBtnClick.forEach((target) =>
-  target.addEventListener("click", () => {
-    delRecommendList();
-    removeMarker();
-    recommendSearch(target.value);
-  })
-);
