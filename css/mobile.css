@@ -1,0 +1,133 @@
+@import "variable.css";
+@import "mobileMap.css";
+@import "mobileToDo-list.css";
+@import "mobileWeather-container.css";
+
+body {
+  margin: 0;
+  padding: 5px;
+  height: 100vh;
+}
+@media (prefers-color-scheme: light) {
+  .todo-container,
+  .weather-container,
+  .right-container {
+    border: var(--main-border);
+    background-color: var(--main-color);
+  }
+  .mapList li {
+    border-bottom: var(--main-border);
+  }
+  .weather-container_innerBox_info_nh div,
+  .weather-container_innerBox_info_mm div {
+    border: var(--main-border);
+  }
+  .seasonRecommend input {
+    border: 1px solid #3b3f4a;
+    border-radius: 3px;
+  }
+}
+/* 다크모드 */
+@media (prefers-color-scheme: dark) {
+  body {
+    color: white;
+    background-color: black;
+  }
+  .seasonRecommend input {
+    border: 1px solid var(--main-dark-color);
+    border-radius: 3px;
+    color: white;
+    background-color: #3b3f4a;
+  }
+  .todo-form > input {
+    border-bottom: 1px solid var(--main-dark-color);
+  }
+  .todo-form > input:focus {
+    border: none;
+    outline: 1px solid var(--main-dark-color);
+  }
+
+  /* .todo-container,
+    .weather-container, */
+  .right-container,
+  .left-container {
+    border: 1px solid var(--main-dark-color);
+    background-color: #1b1c24;
+  }
+  .mapList li {
+    border-bottom: 1px solid var(--main-dark-color);
+
+  }
+  .weather-container_innerBox_info_nh div,
+  .weather-container_innerBox_info_mm div {
+    border: 1px solid var(--main-dark-color);
+  }
+}
+
+.left-container {
+  height: 30%;
+  width: 99%;
+  display: flex;
+  position: relative;
+  margin-bottom: 5px;
+}
+.weather-container {
+  width: 100%;
+  display: flex;
+}
+.weather-container i {
+  margin: 15% 0 0 10%;
+  color: #c7cbcf;
+  font-size: 120px;
+}
+.weather-container_innerBox_info {
+  display: grid;
+  margin: auto;
+  text-align: center;
+}
+.weather-container_innerBox_info div:first-child {
+}
+.weather-container_innerBox_info_nh,
+.weather-container_innerBox_info_mm {
+  display: flex;
+}
+.weather-container_innerBox_info_nh div,
+.weather-container_innerBox_info_mm div {
+  display: grid;
+  padding-top: 3px;
+  height: 50px;
+  width: 70px;
+  border-radius: 15px;
+  margin: 5px;
+}
+.right-container {
+  width: 99%;
+}
+.mapBtn-container {
+  text-align: center;
+  margin: 5px;
+}
+#map {
+  width: 100%;
+  height: 300px;
+}
+.mapList {
+  margin: 0 5px;
+  padding: 0;
+  width: 97%;
+  height: 100%;
+  list-style: none;
+  overflow-y: scroll;
+}
+.mapList li {
+  margin-bottom: 10px;
+}
+.mapList li span {
+  display: block;
+  padding: 4px 0px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+}

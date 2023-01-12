@@ -143,9 +143,10 @@ updateGeoInfo();
 setInterval(updateGeoInfo, 60000);
 
 function hello(target) {
+  // console.log(target.target.value)
   // console.log(target.path[0].value);
   delRecommendList();
   removeMarker();
-  recommendSearch(target.path[0].value);
+  recommendSearch(target.target.value);
 }
 seasonBtnContainer.addEventListener("click", hello);

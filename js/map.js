@@ -56,7 +56,7 @@ function recommendList(result) {
 function recommendSearch(value) {
   const callback = function (result, status) {
     if (status === kakao.maps.services.Status.OK) {
-      // console.log(result);
+      console.log(result);
       recommendList(result);
     }
   };
