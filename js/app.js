@@ -62,6 +62,8 @@ function weatherIcon(weather_data) {
     removeIcon("fa-cloud-rain");
   } else if (weather_data !== "Snow") {
     removeIcon("fa-snowflake");
+  }else if (weather_data === "Rain") {
+    addIcon("fa-Rain");
   }
   if (weather_data === "Clear") {
     addIcon("fa-sun");
@@ -73,6 +75,8 @@ function weatherIcon(weather_data) {
     addIcon("fa-cloud-rain");
   } else if (weather_data === "Snow") {
     addIcon("fa-snowflake");
+  }else if (weather_data === "Rain") {
+    addIcon("fa-rain");
   }
   let seasonOfMons;
   if (2 < mons < 6) {
