@@ -10,7 +10,7 @@ const announcement = document.querySelector(".announcement");
 const seasonRecommend = document.querySelector(".seasonRecommend");
 const seasonBtnContainer = document.querySelector(".seasonBtn-container");
 const recommendBtnClick = document.querySelectorAll(".recommendBtnClick");
-
+//API 인증키
 const API_KEY = "b0cb44432057bee080d3e3db2ed3a68d";
 const MAPAPI_KEY = "c19a0181393183574e358c5095a76439";
 let lat;
@@ -27,6 +27,7 @@ function removeIcon(name) {
 function addIcon(name) {
   weatherIconForYou.classList.add(name);
 }
+//날씨별 멘트
 function fetchPage(name) {
   fetch(name).then(function (response) {
     response.text().then((text) => {
@@ -34,6 +35,8 @@ function fetchPage(name) {
     });
   });
 }
+
+//날씨별 추천버튼
 function fetchBtn(name) {
   fetch(name).then(function (response) {
     response.text().then((text) => {
@@ -50,6 +53,8 @@ function fetchBtn(name) {
     });
   });
 }
+
+//날씨별 아이콘 변경 및 날씨별 멘트 변경
 function weatherIcon(weather_data) {
   // console.log(weather_data);
   if (weather_data !== "Clear") {
@@ -113,7 +118,7 @@ function weatherIcon(weather_data) {
     fetchBtn("seasonBtn/summerBtn");
   }
 }
-
+//좌표를 기준으로 현재 날씨정보 구하기
 function onGeoOk(position) {
   lat = position.coords.latitude;
   lon = position.coords.longitude;
@@ -131,10 +136,12 @@ function onGeoOk(position) {
     });
 }
 
+// 에러가 났을 경우
 function onGeoError() {
   alert("Weather error");
 }
 
+//날씨업데이트가 된 시간
 function updateGeoInfo() {
   const today = new Date();
   const updatehours = today.getHours();
@@ -143,9 +150,11 @@ function updateGeoInfo() {
   updateTime.innerText = `${updatehours}:${updateMins}:${updateSecs}`;
   navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
 }
+
 updateGeoInfo();
 setInterval(updateGeoInfo, 60000);
 
+//새로운 추천버튼 만들기
 function hello(target) {
   // console.log(target.target.value)
   // console.log(target.path[0].value);

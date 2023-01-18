@@ -9,16 +9,24 @@ const options = {
 let places = new kakao.maps.services.Places();
 let map = new kakao.maps.Map(container, options);
 // let geocoder = new kakao.maps.services.Geocoder();
+
+//마커를 저장하는 배열
 let markers = [];
+
+//현재위치로 이동하는 이벤트
 function panTo() {
   const moveLatLon = new kakao.maps.LatLng(lat, lon);
   map.panTo(moveLatLon);
 }
+
+//추천리스트 삭제
 function delRecommendList() {
   while (mapListUl.hasChildNodes()) {
     mapListUl.removeChild(mapListUl.firstChild);
   }
 }
+
+//추천리스트 생성
 function recommendList(result) {
   for (i = 0; i < result.length; i++) {
     const resultList = result[i];
@@ -53,6 +61,8 @@ function recommendList(result) {
     mapListUl.appendChild(placeList);
   }
 }
+
+//추천리스트 검색
 function recommendSearch(value) {
   const callback = function (result, status) {
     if (status === kakao.maps.services.Status.OK) {
@@ -64,6 +74,8 @@ function recommendSearch(value) {
     location: new kakao.maps.LatLng(lat, lon),
   });
 }
+
+//리스트를 기준으로 지도에 마커생성
 function addMarker(yInfo, xInfo) {
   let markerPosition = new kakao.maps.LatLng(yInfo, xInfo);
   marker = new kakao.maps.Marker({
@@ -73,6 +85,8 @@ function addMarker(yInfo, xInfo) {
   marker.setMap(map);
   markers.push(marker);
 }
+
+//마커 삭제
 function removeMarker() {
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(null);

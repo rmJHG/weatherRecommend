@@ -8,6 +8,7 @@ function cheackTodoLen() {
   todoCount.innerText = saveToDo.length;
 }
 
+//TODO 삭제
 function delBtnClick(event) {
   const list = event.target.parentElement;
   list.remove();
@@ -16,6 +17,7 @@ function delBtnClick(event) {
   cheackTodoLen();
 }
 
+//TODO, 버튼 생성
 function addToDo(inputdata) {
   const toDoLi = document.createElement("li");
   toDoLi.id = inputdata.id;
@@ -28,6 +30,8 @@ function addToDo(inputdata) {
   toDoLi.appendChild(delBtn);
   toDoListUl.appendChild(toDoLi);
 }
+
+//TODO 제어
 function toDoSubmit(event) {
   event.preventDefault();
   if (saveToDo.length <= 19) {
@@ -44,6 +48,7 @@ function toDoSubmit(event) {
     todoInput.value = "";
   }
 }
+
 const savedToDo = localStorage.getItem("data");
 if (savedToDo !== null) {
   const reloadToDos = JSON.parse(savedToDo);
@@ -52,6 +57,8 @@ if (savedToDo !== null) {
 }
 cheackTodoLen();
 todoForm.addEventListener("submit", toDoSubmit);
+
+//TODO PLACEHOLDER
 todoInput.addEventListener("focus", () => {
   todoInput.placeholder = "";
 });

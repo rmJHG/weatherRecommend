@@ -1,6 +1,8 @@
 const clock = document.querySelector(".clock");
 const nowDates = document.querySelector(".nowdates");
 let mons;
+
+//현재시간
 function getClock() {
   const today = new Date();
   const hours = String(today.getHours()).padStart(2, "0");
@@ -8,7 +10,7 @@ function getClock() {
   const sec = String(today.getSeconds()).padStart(2, "0");
   clock.innerText = `${hours} : ${min} : ${sec}`;
 }
-
+//현재날짜
 function date() {
   const today = new Date();
   const years = String(today.getFullYear());

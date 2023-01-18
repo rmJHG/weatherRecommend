@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 5px;
   height: 100vh;
+  font-size: 15px;
 }
 .todo-container {
   display: none;
@@ -133,4 +134,9 @@ a {
   color: inherit;
   text-decoration: none;
   font-weight: 700;
+}
+
+.seasonRecommend input {
+  margin: 10px 5px;
+  font-size: 15px;
 }
